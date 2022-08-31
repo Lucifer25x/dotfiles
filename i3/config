@@ -187,4 +187,4 @@ bar {
 }
 
 # nitrogen
-exec --no-startup-id nitrogen
+# exec --no-startup-id nitrogen
