@@ -191,6 +191,9 @@ bar {
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 
+# ------------ Screenshot ------------
+bindsym --release Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
+
 # ------------ Border ------------
 default_border pixel 1
 default_floating_border pixel 1
