@@ -1,1 +1,1 @@
-My dotfiles for zsh, vim, i3 and etc.
+My dotfiles i3, rofi and etc.
