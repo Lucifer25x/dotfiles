@@ -5,5 +5,3 @@
 * `i3-gaps`
 * `rofi`
 * `feh`
-
-![Screenshot](./screenshot.png)
