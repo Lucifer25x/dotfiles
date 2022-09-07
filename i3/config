@@ -185,26 +185,29 @@ bindsym $mod+r mode "resize"
 
 # ------------ Status Bar ------------
 
-bar {
-	i3bar_command i3bar
-	status_command i3status
-	position top
-    colors {
-        background #222222
-        statusline #dddddd
-        separator #666666
+#bar {
+	#i3bar_command i3bar
+	#status_command i3status
+	#position top
+    #colors {
+        #background #222222
+        #statusline #dddddd
+        #separator #666666
 
 #                          border  backgr. text
-        focused_workspace #0088CC #0088CC #ffffff #292F34
-        active_workspace #333333 #333333 #ffffff #FDF6E3
-        inactive_workspace #333333 #333333 #888888 #EEE8D5
-        urgent_workspace #2f343a #900000 #ffffff #E5201D
-    }
-}
+        #focused_workspace #0088CC #0088CC #ffffff #292F34
+        #active_workspace #333333 #333333 #ffffff #FDF6E3
+        #inactive_workspace #333333 #333333 #888888 #EEE8D5
+        #urgent_workspace #2f343a #900000 #ffffff #E5201D
+    #}
+# }
 
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
+
+# polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 
 # ------------ Wallpaper ------------
