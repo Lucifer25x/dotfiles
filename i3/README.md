@@ -5,3 +5,7 @@
 * `i3-gaps`
 * `rofi`
 * `feh`
+* `polybar`
+
+### Screenshot:
+![Screenshot](./screenshot.png)
