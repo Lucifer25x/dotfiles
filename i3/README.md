@@ -5,6 +5,3 @@
 * `rofi`
 * `feh`
 * `polybar`
-
-### Screenshot:
-![Screenshot](./screenshot.png)
