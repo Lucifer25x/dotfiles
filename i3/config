@@ -26,7 +26,7 @@ exec --no-startup-id nm-applet
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioLowerVolume  --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -179,6 +179,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
 # ------------ Status Bar ------------
 
 #bar {
@@ -203,14 +204,21 @@ bindsym $mod+r mode "resize"
 # bindsym $mod+m bar mode toggle
 
 # polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh --forest &
 
 
 # ------------ Wallpaper ------------
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallpaper2.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/wallpaper2.png
 
 # picom
-exec picom &
+exec_always --no-startup-id picom
+
+# change keyboard layout
+# exec "setxkbmap -layout us,az"
+# exec "setxkbmap -option 'grp:win_space_toggle'"
+
+# log
+# exec i3 -V -d all &>> "$HOME/i3.log"
 
 
 # ------------ Screenshot ------------
