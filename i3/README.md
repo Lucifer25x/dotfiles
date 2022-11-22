@@ -1,7 +1,10 @@
 # My small i3 config
 
-### You will need some dependencies:
+## You will need some dependencies:
 * `i3-gaps`
 * `rofi`
 * `feh`
-* `polybar`
+* `mate-screenshot`
+* `xfce4-terminal`
+
+### You should also copy the i3blocks config
