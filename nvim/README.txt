@@ -1,1 +1,1 @@
-Vim config: https://github.com/rafi/vim-config
+[Astronvim](https://github.com/AstroNvim/AstroNvim)
