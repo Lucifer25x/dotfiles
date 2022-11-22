@@ -12,14 +12,24 @@ color=#f8f8f2
 separator_block_width=15
 markup=pango
 
-[battery]
-interval=2
-color=#ff5555
-border=#ff5555
-border_top=1
-border_right=0
-border_bottom=0
-border_left=0
+#uncomment if you have installed i3volume
+#[i3volume]
+#label=
+#command=i3-volume output i3blocks
+#interval=once
+#signal=10
+#color=#b8bb26
+#separator_block_width=10
+#markup=pango
+
+#[battery]
+#interval=2
+#color=#ff5555
+#border=#ff5555
+#border_top=1
+#border_right=0
+#border_bottom=0
+#border_left=0
 
 [wifi]
 command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
@@ -112,35 +122,15 @@ border_left=0
 #border_bottom=0
 #border_left=0
 
-#[time_pst]
-#command=TZ=":US/Pacific" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s<span color=\"#8be9fd\"> %s</span>\n", $1, $2, $3, $4 }'
-#interval=1
-#label=<span color="#8be9fd"> </span>
-#border=#8be9fd
-#border_top=1
-#border_right=0
-#border_bottom=0
-#border_left=0
-
-#[time_cst]
-#command=TZ=":US/Central" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#50fa7b\">%s</span>%s<span color=\"#50fa7b\"> %s</span>\n", $1, $2, $3, $4 }'
-#interval=1
-#label=<span color="#50fa7b"> </span>
-#border=#50fa7b
-#border_top=1
-#border_right=0
-#border_bottom=0
-#border_left=0
-
-#[time_est]
-#command=TZ=":US/Eastern" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#f1fa8c\">%s</span>%s<span color=\"#f1fa8c\"> %s</span>\n", $1, $2, $3, $4 }'
-#interval=1
-#label=<span color="#f1fa8c"> </span>
-#border=#f1fa8c
-#border_top=1
-#border_right=0
-#border_bottom=0
-#border_left=0
+[time_az]
+command= date '+%H : %M' | awk '{ printf "%s<span color=\"#f1fa8c\">%s</span>%s<span color=\"#f1fa8c\"> %s</span>\n", $1, $2, $3, $4 }'
+interval=1
+label=<span color="#f1fa8c"> </span>
+border=#f1fa8c
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
 [date]
 command=LC_ALL="zh_CN.UTF-8" date '+%Y - %B %d - %A' | awk '{ printf " %s <span color=\"#ff5555\">%s %s</span> %s <span color=\"#ff5555\">%s %s</span>\n", $1, $2, $3, $4, $5, $6 }'
