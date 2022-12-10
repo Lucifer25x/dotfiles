@@ -1,0 +1,256 @@
+/*==========⚠️==========
+* (c) Layout created by Bela (https://layouts.spacehey.com/layout?id=2719)
+* Layout customized slightly by Lucifer25x (https://spacehey.com/Lucifer25x)
+* for colors go to https://htmlcolorcodes.com/color-names
+* for fonts go to https://fonts.google.com
+* for cursors go to https://icons8.com or https://www.cursors-4u.com
+============⚠️==========*/
+* { 
+    cursor: url('https://cur.cursors-4u.net/mechanics/mec-1/mec93.cur'), auto; 
+}
+a:hover {
+    cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1049.cur), auto;
+}
+/* this is where the colors are rooted */
+
+:root{
+    --headers: #696969;
+    --text: #708090; 
+    --names: #778899;
+    --links: #B22222;
+    --background_image: url('https://wallpapercave.com/wp/wp10550807.jpg');
+    --font-family: "Courier New", cursive;
+    --curve: 1px;
+    --borders: 2px solid #B22222;
+}
+
+/* this is where the colors for specific things are located */
+
+h3, h4, h5{color: var(--headers)!important;} /* headings*/
+a{color: var(--links) !important;} /* color of links */
+p, h2, .count {color: var(--text);} /* color of text */
+.friends a p{color: var(--names);} /* color of names, and friends counter */
+nav label{color: var(--links);} /* color of search */
+.section h4 {color: var(--headers);} /* aboutme & want2meet headings */
+.blurbs .heading {display:none;} /* hides the blurbs title */
+.details p:last-child{color: var(--text);} /* where the last login and status appears */
+
+/* this is where your background image ends up being styled */
+
+body{
+    background-image: var(--background_image);
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: dimgray;
+}
+/* this is where your name appears */
+h1{
+    color: white;
+    font-family: var(--font-family);
+    font-size:30px !important;
+    font-weight: 1;
+    border: var(--borders);
+    background-color: black;
+    padding:5px;
+    text-align: center;
+}
+
+/* the navigation is adjusted here */
+nav{
+    background-color: black;
+    border: var(--borders);
+    border-radius: var(--curve);
+    text-align: center;
+}
+
+nav .top, nav .links {
+    background-color: transparent;
+    border-radius: var(--curve);
+}
+nav .links a{
+    text-shadow:none;
+}
+
+/* this is the line that appears between links in the header and footer.
+you can add an emoji or symbol instead of the default line it has */
+
+nav .links li:not(:last-child)::after,
+footer .links li:not(:last-child)::after{
+    content: "|";
+    color: white;
+}
+
+nav img.logo{
+    filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(326%) hue-rotate(174deg) brightness(92%) contrast(82%) !important;
+}
+
+/* the search wrapper and button */
+
+.search-wrapper input[type=text] {
+    background-color: transparent !important;
+    border: 2px solid var(--links) !important;
+    color:var(--links) !important;
+    border-radius: var(--curve) !important;
+}
+
+button{
+    border-radius: var(--curve) !important;
+    border: 0px solid var(--links) !important;
+    font-family: var(--font-family) !important;
+    background-color: transparent !important;
+    color:var(--links) !important;
+}
+
+/* the online symbol and text */
+
+.online{
+    color: var(--links) !important;
+    text-transform: lowercase;
+    text-align: right;
+} 
+.online img{
+    filter: brightness(0) saturate(100%) invert(50%) sepia(5%) saturate(326%) hue-rotate(174deg) brightness(92%) contrast(82%); !important;
+}
+
+/* font family for the headers, navigtion links, links, body text */
+
+a, p, b, nav label, .section{ 
+    font-family: var(--font-family);	
+    font-size: 12px;
+    font-weight: 1;
+    text-shadow: 0px 0px 0px black;
+}
+h2, h3, h4, h5{
+    font-family: var(--font-family);
+    font-size: 16px;
+    text-align: center;
+    font-weight: 1;
+    text-shadow: 0px 0px 0px black;
+}
+
+/* the hr code.
+the hr is the horizontal line when you want to 
+separate important info or add a break in your paragraphs*/
+
+hr{
+    height:2px;
+    background: gray;
+    border: none;
+}
+
+/* this is where you adjust the borders and background */
+.blurbs, .mood, .friends, .contact, .profile .table, .blog-preview, .profile .table-section{
+    border-radius: var(--curve);
+    border: var(--borders)!important;
+    background-color: black!important;
+}
+.comment-replies{border:4px groove gray;} /* this is the border around the replies */
+.comment-reply:not(:first-child){border-top: 2px solid var(--links);} /* line in between comment replies*/
+
+/* your interest and comments table row background color */
+td{
+    background-color: transparent!important;
+}
+
+/* the middle section of your profile background color*/
+main{
+    background: transparent;
+    border-radius: var(--curve);
+    border: transparent;
+    outline: none;
+}
+
+/* the interest table */
+.table-section{
+    border:none !important;
+    border-radius: var(--curve) !important;
+}
+
+/* the header section of the boxes */
+.heading{
+    background: none !important;
+}
+/* this is the box that says "Edit Info" when you're logged in,
+and to your friends it says "Profile Name is your friend". */
+
+.profile-info {
+    background-color: black !important;
+    border: var(--borders) !important;
+    border-radius: var(--curve) !important;
+}
+
+/* adjusting images borders and adding styling if you want to */
+.profile-pic{
+    padding: 10px;
+}
+/* you can add text-align:center; if you want your friends to be centered */
+.friends-grid{
+    text-align: center;
+}
+
+/* margin and padding */
+
+h2, h3, h4, h5, p{padding-left:5px !important;} /* this is important when you have rounded corners */
+.contact .heading, .profile .table-section .heading, .blog-preview .heading, .profile .friends .heading, .mood{padding: 5px!important;text-align: center;}
+.mood, .friends{margin-bottom: 10px;}
+
+.url-info{display: none;}
+.general-about .details{
+    background: black;
+    border: var(--borders);
+    padding-bottom: 70px;
+    margin-bottom: 10px;
+}
+.contact{
+    padding: 5px
+}
+.contact .f-col{
+    padding: 0px 0px 7px;
+}
+.f-row{
+    margin:0px!important;
+}
+/* this is the comments table scroll code. 
+you can delete this if you don't want a scroll box */
+
+.comments-table {
+    display: block;
+    height: 500px!important;
+    overflow-y: scroll;
+    outline: none !important;
+    border-radius: 3px;
+    border-spacing: 6px;
+    border: transparent;
+}
+.comments-table td{
+    border: 2px solid gray;
+}
+
+footer{
+    background: black;
+    border: var(--borders);
+    padding:10px;
+    margin-top: 10px;
+}
+/* .details-table td:first-child{display:none;}  this hides the movies,books,heroes titles*/
+</style>
+
+<style>
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    border-radius: var(--curve);
+    border: 1px solid black;
+}
+::-webkit-scrollbar-thumb {
+    background: gray; 
+    border-radius: var(--curve);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: black;  
+}
+</style>
