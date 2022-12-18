@@ -12,14 +12,18 @@ color=#f8f8f2
 separator_block_width=15
 markup=pango
 
-#uncomment if you have installed i3volume
 #[i3volume]
-#label=
-#command=i3-volume output i3blocks
-#interval=once
-#signal=10
-#color=#b8bb26
-#separator_block_width=10
+#abel=<span color="#233e4c"> </span>
+#ommand=i3-volume output i3blocks/00FF00/233e4c
+#nterval=once
+#ignal=10
+#olor=#233e4c
+#order=#233e4c
+#order_top=1
+#order_right=0
+#order_bottom=0
+##rder_left=0
+#eparator_block_width=10
 #markup=pango
 
 #[battery]
