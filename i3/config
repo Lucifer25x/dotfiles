@@ -1,5 +1,6 @@
 # set mod key
 set $mod Mod4
+set $mod2 Mod1
 
 # Font
 # font pango:monospace 9
@@ -45,6 +46,11 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec --no-startup-id dmenu-run
+
+# ------------ i3-volume ------------
+bindsym $mod2+u exec --no-startup-id i3-volume up 5 # increase volume
+bindsym $mod2+d exec --no-startup-id i3-volume down 5 # decrease volume
+bindsym $mod2+m exec --no-startup-id i3-volume mute # mute volume
 
 # ------------ rofi ------------
 bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
@@ -185,7 +191,7 @@ bindsym $mod+r mode "resize"
 bar {
 	# i3bar_command i3bar
 	status_command i3blocks
-	position bottom
+	position top
     colors {
         background #222222
         statusline #dddddd
