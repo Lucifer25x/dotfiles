@@ -6,5 +6,6 @@
 * `feh`
 * `mate-screenshot`
 * `xfce4-terminal`
+* `i3-volume`
 
 ### You should also copy the i3blocks config
