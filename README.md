@@ -5,4 +5,4 @@
 <hr/>
 
 **Screenshot:**
-![Screenshot](./i3/i3.png)
+![Screenshot](./Screenshot.png)
