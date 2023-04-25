@@ -61,15 +61,16 @@ local function run_once(cmd_arr)
 	end
 end
 
-run_once({'picom', 'setxkbmap -layout "us,az"', 'xinput disable 16'})
+run_once({'xinput disable 16', 'picom', 'setxkbmap -layout "us,az"'})
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "kitty"
+-- editor = os.getenv("EDITOR") or "nano"
+editor = "vim" or "micro"
 editor_cmd = terminal .. " -e " .. editor
 
 -- default apps
-browser = "firefox"
+browser = "brave"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
