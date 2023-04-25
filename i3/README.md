@@ -5,6 +5,6 @@
 * `rofi`
 * `feh`
 * `dmenu`
-* `mate-screenshot` (optional)
+* `scrot`
 * `xfce4-terminal`
-* `pactl` or `i3-volume` (optional)
+* `pactl`
