@@ -34,10 +34,23 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Use spaces instead of tabs
-set tabstop     =4
-set softtabstop =4
-set shiftwidth  =4
-set expandtab
+
+" For all languages:
+" set tabstop     =4
+" set softtabstop =4
+" set shiftwidth  =4
+" set expandtab
+
+" For nim language:
+autocmd FileType nim call Nim_settings()
+
+function! Nim_settings()
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal softtabstop=4
+  setlocal expandtab
+endfunction
+
 
 " Auto close brackets
 inoremap " ""<left>
@@ -47,3 +60,4 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
+
