@@ -4,8 +4,8 @@ hide_ascii      = true
 spacing         = 2
 padding         = 0
 separator       = " ● "
-key_color       = "#8cabee"
-separator_color = "#e40c40"
+key_color       = "#8AADF4"
+separator_color = "#ED8796"
 
 [bar]
 glyph           = "●"
