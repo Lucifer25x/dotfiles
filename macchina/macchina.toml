@@ -1,0 +1,2 @@
+theme = "Lucy"
+show = ["Host", "Distribution", "Kernel", "DesktopEnvironment", "WindowManager","Packages", "Terminal", "Shell", "Uptime", "Memory"]
