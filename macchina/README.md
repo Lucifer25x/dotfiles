@@ -1,4 +1,4 @@
 **My simple `Macchina` configuration and theme**
 
 Screenshot:
-![Macchina Config](./macchina.png)
+![Macchina Config](./macchina-screenshot.png)
