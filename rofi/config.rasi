@@ -3,5 +3,4 @@ configuration {
  font: "hack 10";
  combi-modi: "drun";
  }
-//@theme "/home/lucifer25x/.local/share/rofi/themes/rounded-nord-dark.rasi"
-@theme "/home/lucifer25x/.local/share/rofi/themes/appmnu.rasi"
+@theme "~/.config/rofi/themes/appmnu.rasi"

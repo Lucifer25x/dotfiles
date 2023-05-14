@@ -41,17 +41,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 " set shiftwidth  =4
 " set expandtab
 
-" For nim language:
-autocmd FileType nim call Nim_settings()
-
-function! Nim_settings()
-  setlocal tabstop=4
-  setlocal shiftwidth=4
-  setlocal softtabstop=4
-  setlocal expandtab
-endfunction
-
-
 " Auto close brackets
 inoremap " ""<left>
 inoremap ' ''<left>
