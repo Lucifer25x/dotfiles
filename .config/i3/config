@@ -27,7 +27,7 @@ exec --no-startup-id nm-applet
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume  --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -211,8 +211,11 @@ client.background       #F8F8F2
 
 # ------------ start terminal -----------
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec xfce4-terminal
+# bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec alacritty
 
+# ------------ start thunar ------------
+bindsym $mod+Shift+T exec thunar
 
 # ------------ start dmenu -----------
 # bindsym $mod+Shift+d exec --no-startup-id dmenu-run
@@ -246,7 +249,7 @@ exec_always --no-startup-id xinput disable 16
 
 
 # ------------ wallpaper ------------
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/first-collection/arch.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Nord_Buildings.png
 
 
 # ------------ picom ------------
