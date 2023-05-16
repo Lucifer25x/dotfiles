@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-scale '/home/lucifer25x/Pictures/wallpapers/Nord_Buildings.png'
