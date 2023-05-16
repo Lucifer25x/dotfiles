@@ -1,12 +1,11 @@
-# My ugly i3 config
-
 ## You will need some dependencies:
-* `i3-gaps`
 * `rofi`
+* `thunar`
+* `firefox`
 * `feh`
 * `dmenu`
 * `scrot`
-* `xfce4-terminal`
+* `alacritty`
 * `pactl`
 
 ## Keybindings:
@@ -20,3 +19,4 @@
 * `Win+d` - open rofi
 * `Win+Shift+d` - open dmenu
 * `Print` - screenshot
+* `Win+Shift+t` - open thunar
