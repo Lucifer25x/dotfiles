@@ -212,7 +212,7 @@ client.background       #F8F8F2
 # ------------ start terminal -----------
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # ------------ start thunar ------------
 bindsym $mod+Shift+T exec thunar
