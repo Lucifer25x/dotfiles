@@ -245,7 +245,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
 # ------------ disable touchpad ------------
-# exec_always --no-startup-id xinput disable 15
+exec_always --no-startup-id xinput disable "SynPS/2 Synaptics TouchPad"
 
 
 # ------------ wallpaper ------------
