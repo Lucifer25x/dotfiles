@@ -258,8 +258,8 @@ exec_always --no-startup-id picom
 
 
 # ------------ change keyboard layout ------------
-exec_always --no-startup-id "setxkbmap -layout us,az ,, -option grp:win_space_toggle"
-
+# exec_always --no-startup-id "setxkbmap -layout us,az ,, -option grp:win_space_toggle"
+exec_always --no-startup-id setxkbmap -layout us,az ,, -option grp:win_space_toggle
 
 
 
