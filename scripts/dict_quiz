@@ -25,7 +25,7 @@ def read_dictionary(file_path, lang):
   try:
     with open(file_path, 'r') as f:
       content = f.read()
-      content = content.split('\n')
+      content = [line for line in content.split('\n') if len(line)]
       questions = []
       answers = []
       for line in content:
@@ -62,12 +62,12 @@ def ask_questions(questions, answers, order):
     if answer == "!q" or not answer:
       break
             
-      if answers[i] == answer:
-        correct += 1
-      else:
-        mistake += 1
-        print("You made a mistake! Correct answer was '{}'".format(answers[i]))
-      answered_questions += 1
+    if answers[i] == answer:
+      correct += 1
+    else:
+      mistake += 1
+      print("You made a mistake! Correct answer was '{}'".format(answers[i]))
+    answered_questions += 1
     
   return correct, mistake, answered_questions
 
