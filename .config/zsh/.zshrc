@@ -103,7 +103,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export DENO_INSTALL="/home/lucifer25x/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH="/home/lucifer25x/.cargo/bin:$PATH"
