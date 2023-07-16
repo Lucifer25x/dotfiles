@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 
@@ -8,11 +8,14 @@ template = '[Desktop Entry]\nVersion=1.0\nType=Application\nTerminal=false'
 name = input("App name: ")
 comment = input("Comment: ")
 icon = input("Icon: ")
-exec = input("Exec: ")
+exe = input("Exec: ")
+category = input("Categories: ")
 
-template += '\nName=' + name + '\nExec=' + exec + "\nIcon=" + icon
+template += '\nName=' + name + '\nExec=' + exe + "\nIcon=" + icon
 if comment:
 	template += "\nComment=" + comment
+if category:
+    template += "\nCategories=" + category
 
 f = open(home_directory + "/.local/share/applications/" + name+".desktop", "a")
 f.write(template)
