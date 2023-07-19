@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+
+# Import modules
+import tkinter as tk
+from tkinter import messagebox, filedialog
+import os
+
+# Create shortcut
+def create():
+    # Template for .desktop file
+    template = '[Desktop Entry]\nVersion=1.0\nType=Application\nTerminal=false'
+
+    # Entry value
+    name = name_entry.get()
+    comment = comment_entry.get()
+    icon = icon_entry.cget('text')
+    exe = exec_entry.cget('text')
+
+    # Check app name and executable
+    if not exe or not name:
+        return
+
+    # Add new values to template
+    template += "\nName=" + name + "\nExec=" + exe
+    if icon:
+        template += f'\nIcon={icon}'
+    if comment:
+        template += f'\nComment={comment}'
+    if category.get() != 'No Category':
+        template += f'\nCategories={category.get()}'
+
+    # Get shortcut directory and create .desktop file
+    filepath = os.path.join(os.path.expanduser('~'), '.local/share/applications', f'{name}.desktop')
+    with open(filepath, 'w') as f:
+        f.write(template)
+
+    messagebox.showinfo('Success', 'Desktop file created successfully!')
+
+    # Reset values
+    name_entry.delete(0, tk.END)
+    comment_entry.delete(0, tk.END)
+    icon_entry.config(text='Select icon file')
+    exec_entry.config(text='Select executable')
+
+# Select Icon
+def select_icon():
+    icon = filedialog.askopenfilename(filetypes=[('Image files', '.png .svg')])
+    if icon:
+        icon_entry.config(text=icon)
+
+# Select executable
+def select_exe():
+    executable = filedialog.askopenfilename()
+    if executable:
+        exec_entry.config(text=executable)
+
+# Create window and configure it
+root = tk.Tk()
+root.title('Shortcut Creator')
+root.geometry('250x550')
+root.resizable(False, False)
+
+# App name
+title_label = tk.Label(root, text='Shortcut Creator', font=('Arial', 16, 'bold'))
+title_label.pack(pady=20)
+
+# Separator
+separator = tk.Frame(height=2, bd=1, relief=tk.SUNKEN)
+separator.pack(fill=tk.X, padx=10, pady=(0, 10), anchor='n')
+
+# Inputs
+name_label = tk.Label(root, text='App name:')
+name_label.pack(pady=10)
+name_entry = tk.Entry(root)
+name_entry.pack(pady=5)
+
+comment_label = tk.Label(root, text='Comment:')
+comment_label.pack(pady=10)
+comment_entry = tk.Entry(root)
+comment_entry.pack(pady=5)
+
+icon_label = tk.Label(root, text='Icon:')
+icon_label.pack(pady=10)
+icon_entry = tk.Button(root, text='Select icon file', command=select_icon)
+icon_entry.pack(pady=5)
+
+exec_label = tk.Label(root, text='Exec:')
+exec_label.pack(pady=10)
+exec_entry = tk.Button(root, text='Select executable', command=select_exe)
+exec_entry.pack(pady=5)
+
+categories = [
+'No Category',
+'AudioVideo',
+'Audio',
+'Video',
+'Development',
+'Education',
+'Game',
+'Graphics',
+'Network',
+'Office',
+'Settings',
+'Utility',
+]
+categories_label = tk.Label(root, text='Categories:')
+categories_label.pack(pady=10)
+category = tk.StringVar(root)
+category.set('No Category')
+categories_menu = tk.OptionMenu(root, category, *categories)
+categories_menu.pack(pady=5)
+
+# Submit values and create the shortcut
+submit_button = tk.Button(root, text='Create', command=create)
+submit_button.pack(pady=20)
+
+# Main loop
+root.mainloop()
