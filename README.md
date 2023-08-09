@@ -6,3 +6,15 @@
 
 **Screenshot:**
 ![Screenshot](./screenshot.png)
+
+**Nerd fonts list**
+CascadiaCode
+FiraCode
+Go-Mono
+Hack
+JetBrainsMono
+Meslo
+Mononoki
+RobotoMono
+SourceCodePro
+UbuntuMono
