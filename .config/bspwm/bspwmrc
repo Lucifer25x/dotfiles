@@ -25,16 +25,19 @@ bspc config normal_border_color      "#202A25"
 picom &
 
 # start nm-applet
-nm-applet &
+# nm-applet &
+
+# start dunst
+dunst &
 
 # starting polybar
 $HOME/.config/polybar/launch.sh
 
 # keyboard layout
-setxkbmap -layout us,az ,, -option grp:win_space_toggle
+setxkbmap -layout us,az ,, -option grp:win_space_toggle &
 
 # disable touchpad
-xinput disable "SynPS/2 Synaptics TouchPad"
+xinput disable "SynPS/2 Synaptics TouchPad" &
 
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
 # bspc rule -a Chromium desktop='^2'
