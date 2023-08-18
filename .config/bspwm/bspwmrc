@@ -16,8 +16,10 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-#bspc config focused_border_color     "#26F0F1"
-bspc config focused_border_color     "#5C6F7B"
+# bspc config focused_border_color     "#26F0F1"
+# bspc config focused_border_color     "#5C6F7B"
+# bspc config focused_border_color     "#55376b"
+bspc config focused_border_color     "#514e75"
 bspc config normal_border_color      "#202A25"
 
 # starting wallpaper manager
