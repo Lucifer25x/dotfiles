@@ -1,4 +1,3 @@
-echo "Launching...."
-killall polybar
-polybar
-echo "Launched!"
+#!/usr/bin/env bash
+
+$HOME/.config/polybar/forest/launch.sh
