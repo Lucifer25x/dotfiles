@@ -27,3 +27,5 @@
 * RobotoMono
 * SourceCodePro
 * UbuntuMono
+
+You can use [getnf](https://github.com/getnf/getnf) to install nerd fonts easily
