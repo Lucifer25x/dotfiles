@@ -284,6 +284,9 @@ exec_always --no-startup-id picom
 # exec_always --no-startup-id "setxkbmap -layout us,az ,, -option grp:win_space_toggle"
 exec_always --no-startup-id setxkbmap -layout us,az ,, -option grp:win_space_toggle
 
+# ------------ enable touchpad click ------------
+# exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
+
 
 
 # --------------------------------
