@@ -46,7 +46,7 @@
 </details>
 
 <details>
-<summary>Change Volume</summary>
+<summary>Change Volume (not used anymore)</summary>
 
 * <kbd>Alt+i</kbd> - increase volume
 * <kbd>Alt+d</kbd> - decrease volume
