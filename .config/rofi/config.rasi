@@ -3,4 +3,5 @@ configuration {
  font: "hack 10";
  combi-modi: "drun";
  }
-@theme "~/.config/rofi/themes/appmnu.rasi"
+/* @theme "~/.config/rofi/themes/appmnu.rasi" */
+@theme "~/.config/rofi/themes/Arc-Dark-custom.rasi"
