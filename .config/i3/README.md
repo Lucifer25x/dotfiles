@@ -21,6 +21,7 @@
 * <kbd>Win</kbd>+<kbd>f</kbd> - fullscreen toggle
 * <kbd>Win</kbd>+<kbd>Space</kbd> - change the keyboard layout
 * <kbd>PrintScreen</kbd> - take a screenshot
+* <kbd>Win</kbd>+<kbd>PrintScreen</kbd> - select and take a screenshot
 
 </details>
 
