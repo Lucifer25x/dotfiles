@@ -1,5 +1,4 @@
 # My polybar config files
-*Currently I use customized forest theme from [Polybar Themes](https://github.com/adi1090x/polybar-themes) repository.*
 
 ### For my own config file, you may need to install `rofi-power-menu`, `pavucontrol` and `polybar-protonvpn`
 [Rofi Power Menu](https://github.com/jluttine/rofi-power-menu)
