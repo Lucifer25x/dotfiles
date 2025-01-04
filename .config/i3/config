@@ -112,27 +112,27 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# set $ws1    "1:   Terminal "
-# set $ws2    "2:   Code "
-# set $ws3    "3:   Chromium "
-# set $ws4    "4:   Files "
-# set $ws5    "5:   Documents "
-# set $ws6    "6:   Media "
-# set $ws7    "7:   Design "
-# set $ws8    "8:   Chat "
-# set $ws9    "9:   General "
-# set $ws10   "10:   Settings "
+#set $ws1    "1:   Terminal "
+#set $ws2    "2:   Code "
+#set $ws3    "3: 󰈹  Browser "
+#set $ws4    "4:   Files "
+#set $ws5    "5:   Documents "
+#set $ws6    "6:   Media "
+#set $ws7    "7:   Design "
+#set $ws8    "8:   Chat "
+#set $ws9    "9:   General "
+#set $ws10   "10: Settings "
 
-# set $ws1    "1:  "
-# set $ws2    "2:  "
-# set $ws3    "3:  "
-# set $ws4    "4:  "
-# set $ws5    "5:  "
-# set $ws6    "6:  "
-# set $ws7    "7:  "
-# set $ws8    "8:  "
-# set $ws9    "9:  "
-# set $ws10   "10:  "
+#set $ws1    "1:  "
+#set $ws2    "2:  "
+#set $ws3    "3: 󰈹 "
+#set $ws4    "4:  "
+#set $ws5    "5:  "
+#set $ws6    "6:  "
+#set $ws7    "7:  "
+#set $ws8    "8:  "
+#set $ws9    "9:  "
+#set $ws10   "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -208,21 +208,21 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
 
-# bar {
-	# status_command i3status
-	# position top
-  	# colors {
-    	# background #282A36
-    	# statusline #F8F8F2
-    	# separator  #44475A
-
-    	# focused_workspace  #44475A #44475A #F8F8F2
-    	# active_workspace   #282A36 #44475A #F8F8F2
-    	# inactive_workspace #282A36 #282A36 #BFBFBF
-    	# urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    	# binding_mode       #FF5555 #FF5555 #F8F8F2
-  	# }
-# }
+#bar {
+	#status_command i3status
+	#position top
+  	#colors {
+   # 	background #282A36
+   # 	statusline #F8F8F2
+   # 	separator  #44475A
+#
+ #   	focused_workspace  #44475A #44475A #F8F8F2
+  #  	active_workspace   #282A36 #44475A #F8F8F2
+   # 	inactive_workspace #282A36 #282A36 #BFBFBF
+    #	urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    #	binding_mode       #FF5555 #FF5555 #F8F8F2
+  	#}
+#}
 
 
 
@@ -232,8 +232,8 @@ client.background       #F8F8F2
 
 
 # ------------ start terminal -----------
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec xfce4-terminal
 # bindsym $mod+Return exec --no-startup-id alacritty
 
 # ------------ start thunar ------------
@@ -245,7 +245,7 @@ bindsym $mod+Shift+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36'
 
 
 # ------------ screenshot ------------
-bindsym Print exec scrot $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym Print exec --no-startup-id scrot $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
 
 # ------------- start firefox ------------
@@ -253,9 +253,9 @@ bindsym $mod+Shift+f exec firefox
 
 
 # ------------ volume control ------------
-bindsym $mod2+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym $mod2+d exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym $mod2+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+# bindsym $mod2+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+# bindsym $mod2+d exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym $mod2+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
 # ------------ rofi ------------
@@ -267,8 +267,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 
-# ------------ disable touchpad ------------
-exec_always --no-startup-id xinput disable "SynPS/2 Synaptics TouchPad"
+# ------------ disable touchpad (old laptop) ------------
+# exec_always --no-startup-id xinput disable "SynPS/2 Synaptics TouchPad"
 
 
 # ------------ wallpaper ------------
@@ -285,8 +285,15 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id setxkbmap -layout us,az ,, -option grp:win_space_toggle
 
 # ------------ enable touchpad click ------------
-# exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
 
+# enable natural scrolling on touchpad
+exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Natural Scrolling Enabled" 1
+
+# ------------ change brightness ------------
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
 
 
 # --------------------------------
@@ -302,6 +309,6 @@ for_window [class=".*"] border pixel 1
 
 
 # ------------ set inner and outer gaps ------------
-#smart_gaps on
-#gaps inner 5
-#gaps outer 2
+smart_gaps on
+gaps inner 5
+gaps outer 2
