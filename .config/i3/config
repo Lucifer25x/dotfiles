@@ -212,13 +212,12 @@ client.background       #F8F8F2
 	#status_command i3status
 	#position top
   	#colors {
-   # 	background #282A36
-   # 	statusline #F8F8F2
-   # 	separator  #44475A
-#
- #   	focused_workspace  #44475A #44475A #F8F8F2
-  #  	active_workspace   #282A36 #44475A #F8F8F2
-   # 	inactive_workspace #282A36 #282A36 #BFBFBF
+   	# 	background #282A36
+   	# 	statusline #F8F8F2
+   	# 	separator  #44475A
+    #	focused_workspace  #44475A #44475A #F8F8F2
+    #	active_workspace   #282A36 #44475A #F8F8F2
+    #	inactive_workspace #282A36 #282A36 #BFBFBF
     #	urgent_workspace   #FF5555 #FF5555 #F8F8F2
     #	binding_mode       #FF5555 #FF5555 #F8F8F2
   	#}
@@ -227,9 +226,8 @@ client.background       #F8F8F2
 
 
 # ------------------------------------------
-# ------------ custom launchers ------------
+# ----------- custom keybindings -----------
 # ------------------------------------------
-
 
 # ------------ start terminal -----------
 bindsym $mod+Return exec i3-sensible-terminal
@@ -247,16 +245,13 @@ bindsym $mod+Shift+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36'
 bindsym Print exec --no-startup-id scrot $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym $mod+Print exec --no-startup-id scrot --select $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
-
 # ------------- start firefox ------------
 bindsym $mod+Shift+f exec firefox
-
 
 # ------------ volume control ------------
 # bindsym $mod2+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 # bindsym $mod2+d exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 # bindsym $mod2+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
 
 # ------------ rofi ------------
 #bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
@@ -265,37 +260,33 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # ------------ alt+tab with rofi ------------
 bindsym $mod2+Tab exec --no-startup-id rofi -show window
 
-# ------------ launch polybar ------------
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-
-# ------------ disable touchpad (old laptop) ------------
-# exec_always --no-startup-id xinput disable "SynPS/2 Synaptics TouchPad"
-
-
-# ------------ wallpaper ------------
-# exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Nord_Buildings.png
-exec --no-startup-id ~/.fehbg
-
-
-# ------------ picom ------------
-exec_always --no-startup-id picom
-
-
 # ------------ change keyboard layout ------------
 # exec_always --no-startup-id "setxkbmap -layout us,az ,, -option grp:win_space_toggle"
 exec_always --no-startup-id setxkbmap -layout us,az ,, -option grp:win_space_toggle
+
+# ------------ change brightness ------------
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# -------------------------------------
+# ------------ autostart ---- ---------
+# -------------------------------------
+
+# ------------ wallpaper ------------
+exec --no-startup-id ~/.fehbg
+
+# ------------ launch polybar ------------
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# ------------ picom ------------
+exec_always --no-startup-id picom
 
 # ------------ enable touchpad click ------------
 exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
 
 # enable natural scrolling on touchpad
 exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Natural Scrolling Enabled" 1
-
-# ------------ change brightness ------------
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
 
 
 # --------------------------------
