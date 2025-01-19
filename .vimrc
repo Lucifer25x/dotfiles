@@ -5,13 +5,10 @@ call plug#begin()
 	Plug 'sheerun/vim-polyglot'
 	Plug 'joshdick/onedark.vim'
 	Plug 'preservim/nerdtree'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'ycm-core/YouCompleteMe'
-	Plug 'mattn/emmet-vim'
+	" Plug 'vim-airline/vim-airline'
+	" Plug 'vim-airline/vim-airline-themes'
 	Plug 'wakatime/vim-wakatime'
-	Plug 'tpope/vim-surround'
-	Plug 'vim-syntastic/syntastic'
+	" Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -21,6 +18,8 @@ syntax on
 colorscheme onedark
 set number
 set encoding=UTF-8
+
+filetype plugin indent on
 
 " Keymaps for NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -42,11 +41,10 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " set expandtab
 
 " Auto close brackets
-" inoremap " ""<left>
-" inoremap ' ''<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap { {}<left>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
 " inoremap {<CR> {<CR>}<ESC>O
 " inoremap {;<CR> {<CR>};<ESC>O
-
