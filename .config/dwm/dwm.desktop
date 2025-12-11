@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Dwm
 Comment=Dynamic Window Manager
-Exec=/home/lucifer25x/Documents/dotfiles/.config/dwm/dwm
+Exec=/home/lucifer25x/Documents/dotfiles/.config/dwm/launch.sh
 Icon=/home/lucifer25x/Documents/dotfiles/.config/dwm/dwm.png
 Type=XSession
