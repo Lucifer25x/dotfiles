@@ -73,6 +73,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *rofi[] = {"rofi", "-show", "drun", NULL};
+static const char *screenshot[] = {"spectacle", NULL};
 static const char *incvol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *decvol[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *mute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
@@ -86,6 +88,8 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,							XK_d,			 spawn,					 {.v = rofi } },
+	{ 0,														XK_Print,  spawn,					 {.v = screenshot } },
   { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = incvol } },
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = decvol } },
   { 0,                            XF86XK_AudioMute, spawn, {.v = mute } },
