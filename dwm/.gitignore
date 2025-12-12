@@ -1,0 +1,12 @@
+# Ignore auto-generated files
+config.h
+dwm
+*.o
+
+# Patch rejects and backups
+*.rej
+*.orig
+config.def.h.orig
+dwm.c.orig
+util.c.orig
+
