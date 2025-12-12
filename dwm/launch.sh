@@ -4,4 +4,4 @@
 ~/.fehbg &
 
 # Start dwm
-exec ~/Documents/dotfiles/.config/dwm/dwm
+exec dwm
