@@ -24,6 +24,7 @@ static const char *const autostart[] = {
 	"sh", "-c", "~/.fehbg", NULL,
 	"dunst", NULL,
 	"picom", NULL,
+	"slstatus", NULL,
 	"xinput", "set-prop", "ELAN1203:00 04F3:307A Touchpad", "libinput Natural Scrolling Enabled", "1", NULL,
 	"setxkbmap", "-layout", "us,az", "-option", "grp:win_space_toggle", NULL,
 	NULL /* terminate */

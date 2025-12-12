@@ -1,0 +1,12 @@
+# Ignore auto-generated files
+config.h
+slstatus
+*.o
+
+# Patch rejects and backups
+*.rej
+*.orig
+config.def.h.orig
+slstatus.c.orig
+util.c.orig
+
