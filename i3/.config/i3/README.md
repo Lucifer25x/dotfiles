@@ -8,7 +8,7 @@
 * `scrot`
 * `dmenu`
 * `thunar`
-* `xfce4-terminal`
+* `xfce4-terminal` - optional
 
 ## Keybindings:
 <details>

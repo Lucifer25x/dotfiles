@@ -112,28 +112,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-#set $ws1    "1:   Terminal "
-#set $ws2    "2:   Code "
-#set $ws3    "3: 󰈹  Browser "
-#set $ws4    "4:   Files "
-#set $ws5    "5:   Documents "
-#set $ws6    "6:   Media "
-#set $ws7    "7:   Design "
-#set $ws8    "8:   Chat "
-#set $ws9    "9:   General "
-#set $ws10   "10: Settings "
-
-#set $ws1    "1:  "
-#set $ws2    "2:  "
-#set $ws3    "3: 󰈹 "
-#set $ws4    "4:  "
-#set $ws5    "5:  "
-#set $ws6    "6:  "
-#set $ws7    "7:  "
-#set $ws8    "8:  "
-#set $ws9    "9:  "
-#set $ws10   "10:"
-
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -231,14 +209,11 @@ client.background       #F8F8F2
 
 # ------------ start terminal -----------
 bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec xfce4-terminal
-# bindsym $mod+Return exec --no-startup-id alacritty
 
 # ------------ start thunar ------------
 bindsym $mod+Shift+T exec thunar
 
 # ------------ start dmenu -----------
-#bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 bindsym $mod+Shift+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
 # ------------ screenshot ------------
@@ -254,20 +229,17 @@ bindsym $mod+Shift+f exec firefox
 # bindsym $mod2+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # ------------ rofi ------------
-#bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # ------------ alt+tab with rofi ------------
 bindsym $mod2+Tab exec --no-startup-id rofi -show window
 
 # ------------ change keyboard layout ------------
-# exec_always --no-startup-id "setxkbmap -layout us,az ,, -option grp:win_space_toggle"
-exec_always --no-startup-id setxkbmap -layout us,az ,, -option grp:win_space_toggle
+exec_always --no-startup-id setxkbmap -layout us,az -option grp:win_space_toggle
 
 # ------------ change brightness ------------
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
-# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # -------------------------------------
 # ------------ autostart ---- ---------
