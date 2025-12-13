@@ -4,7 +4,4 @@ configuration {
  font: "hack 12";
  combi-modi: "window,drun";
 }
-/* @theme "~/.config/rofi/themes/rounded-nord-dark.rasi" */
 @theme "~/.config/rofi/themes/Arc-Dark-custom.rasi"
-/* @theme "~/.config/rofi/themes/squared-material-red.rasi" */
-/* @theme "~/.config/rofi/themes/squared-nord.rasi" */
