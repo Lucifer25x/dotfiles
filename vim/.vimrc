@@ -5,7 +5,7 @@ call plug#begin()
 	Plug 'sheerun/vim-polyglot'
 	Plug 'joshdick/onedark.vim'
 	Plug 'preservim/nerdtree'
-	" Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline'
 	" Plug 'vim-airline/vim-airline-themes'
 	Plug 'wakatime/vim-wakatime'
 	" Plug 'tpope/vim-surround'
@@ -35,9 +35,9 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " Use spaces instead of tabs
 
 " For all languages:
-" set tabstop     =4
-" set softtabstop =4
-" set shiftwidth  =4
+" set tabstop 	 =4
+" set softtabstop = 4
+" set shiftwidth =4
 " set expandtab
 
 " Auto close brackets
