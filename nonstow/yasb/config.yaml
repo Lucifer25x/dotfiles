@@ -44,18 +44,19 @@ bars:
       - "glazewm_workspaces"
       - "active_window"
       center:
+      - "weather"
       - "clock"
+      - "pomodoro"
       right:
       - "media"
       - "microphone"
       - "volume"
-      # - "language"
-      # - "weather"
       - "wifi"
       - "bluetooth"
       - "battery"
-      # - "systray"
       - "power_menu"
+      # - "language"
+      # - "systray"
 widgets:
   home:
     type: "yasb.home.HomeWidget"
@@ -148,10 +149,10 @@ widgets:
     options:
       label: "<span>{icon}</span> {temp}"
       label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
-      api_key: env
+      api_key: ""
       update_interval: 600
       hide_decimal: true
-      location: env
+      location: ""
       callbacks:
         on_left: "toggle_card"
         on_middle: "do_nothing"
@@ -402,6 +403,48 @@ widgets:
         offset_left: 0
         show_layout_icon: true
         layout_icon: "\uf11c"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+  pomodoro:
+    type: "yasb.pomodoro.PomodoroWidget"
+    options:
+      label: "<span>{icon}</span> {remaining}"
+      label_alt: "<span>{icon}</span> {session}/{total_sessions} - {status}"
+      work_duration: 25
+      break_duration: 5
+      long_break_duration: 15
+      long_break_interval: 4
+      auto_start_breaks: true
+      auto_start_work: true
+      sound_notification: true
+      show_notification: true
+      hide_on_break: false
+      session_target: 8
+      icons:
+        work: "\uf252"
+        break: "\uf253"
+        paused: "\uf254"
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        circle_background_color: "#09ffffff"
+        circle_work_progress_color: "#88c0d0"
+        circle_break_progress_color: "#a3be8c"
+        circle_thickness: 8
+        circle_size: 160
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "reset_timer"
+        on_right: "toggle_label"
       label_shadow:
         enabled: true
         color: "black"
