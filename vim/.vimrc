@@ -1,50 +1,55 @@
 set nocompatible
-
-" Install Plugins
 call plug#begin()
-	Plug 'sheerun/vim-polyglot'
-	Plug 'joshdick/onedark.vim'
-	Plug 'preservim/nerdtree'
-	Plug 'vim-airline/vim-airline'
-	" Plug 'vim-airline/vim-airline-themes'
-	Plug 'wakatime/vim-wakatime'
-	" Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-commentary'
-	Plug 'ryanoasis/vim-devicons'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'catppuccin/vim', {'as':'catppuccin'}
+  Plug 'preservim/nerdtree'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'wakatime/vim-wakatime'
+  Plug 'tpope/vim-commentary'
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-" Set
+" UI
 syntax on
-colorscheme onedark
+colorscheme catppuccin_mocha
+set termguicolors
 set number
-set encoding=UTF-8
-
+set encoding=utf-8
 filetype plugin indent on
 
-" Keymaps for NERDTree
+" NERDTree keymaps
+let mapleader = "\<Space>"
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-n>     :NERDTreeToggle<CR>
+nnoremap <C-f>     :NERDTreeFind<CR>
 
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" Tab keymaps
+" nnoremap <leader>t :tabnew<CR>
+" nnoremap <leader>c :tabclose<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabclose<CR>
+nnoremap <C-PageDown> :tabnext<CR>
+nnoremap <C-PageUp>   :tabprevious<CR>
 
-" Use spaces instead of tabs
+" Navigation
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Down> <C-w>j
+nnoremap <C-Up>   <C-w>k
+nnoremap <C-Right> <C-w>l
+nnoremap <C-k>  :resize +2<CR>
+nnoremap <C-j>  :resize -2<CR>
+nnoremap <C-h>  :vertical resize -2<CR>
+nnoremap <C-l>  :vertical resize +2<CR>
 
-" For all languages:
-" set tabstop 	 =4
-" set softtabstop = 4
-" set shiftwidth =4
-" set expandtab
+" Save/quit
+nnoremap <C-s> :update<CR>
+nnoremap <C-q> :q<CR>
 
-" Auto close brackets
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-" inoremap {<CR> {<CR>}<ESC>O
-" inoremap {;<CR> {<CR>};<ESC>O
+" Auto-close pairs
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+
