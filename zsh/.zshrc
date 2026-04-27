@@ -73,7 +73,8 @@ ZSH_THEME="cloud"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-autosuggestions	
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,3 +114,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH=$PATH:/home/lucifer25x/.spicetify
 export PATH=$HOME/.local/bin:$PATH
+
+xclip() {
+  command xclip -selection clipboard "$@"
+}
