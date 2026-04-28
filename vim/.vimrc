@@ -8,15 +8,23 @@ call plug#begin()
   Plug 'wakatime/vim-wakatime'
   Plug 'tpope/vim-commentary'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'mhinz/vim-startify'
 call plug#end()
 
 " UI
 syntax on
+set clipboard=unnamedplus
+set smartcase
+set incsearch
 colorscheme catppuccin_mocha
 set termguicolors
 set number
-set encoding=utf-8
 filetype plugin indent on
+set mouse=a
+set shortmess+=I
 
 " NERDTree keymaps
 let mapleader = "\<Space>"
@@ -28,7 +36,7 @@ nnoremap <C-f>     :NERDTreeFind<CR>
 " nnoremap <leader>t :tabnew<CR>
 " nnoremap <leader>c :tabclose<CR>
 nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :tabclose<CR>
+" nnoremap <C-w> :tabclose<CR>
 nnoremap <C-PageDown> :tabnext<CR>
 nnoremap <C-PageUp>   :tabprevious<CR>
 
@@ -42,14 +50,40 @@ nnoremap <C-j>  :resize -2<CR>
 nnoremap <C-h>  :vertical resize -2<CR>
 nnoremap <C-l>  :vertical resize +2<CR>
 
-" Save/quit
+" FZF
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>g :GFiles<CR>
+nnoremap <leader>f :Rg<CR>
+
+" Other
 nnoremap <C-s> :update<CR>
+inoremap <C-s> <Esc>:update<CR>a
 nnoremap <C-q> :q<CR>
+inoremap <C-q> <Esc>:q<CR>
+nnoremap <C-/> :Commentary<CR>
 
-" Auto-close pairs
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-
+" Vim startify
+let g:startify_center = 1
+let g:startify_custom_header = [
+\ '',
+\ '',
+\ '                    ██╗   ██╗██╗███╗   ███╗',
+\ '                    ██║   ██║██║████╗ ████║',
+\ '                    ██║   ██║██║██╔████╔██║',
+\ '                    ╚██╗ ██╔╝██║██║╚██╔╝██║',
+\ '                     ╚████╔╝ ██║██║ ╚═╝ ██║',
+\ '                      ╚═══╝  ╚═╝╚═╝     ╚═╝',
+\ '',
+\ ]
+let g:startify_lists = [
+\ { 'type': 'files',     'header': ['   Recent files'] },
+\ { 'type': 'commands',  'header': ['   Shortcuts'] },
+\ ]
+let g:startify_commands = [
+\ { 'n': ['NERDTree', ':NERDTreeToggle'] },
+\ { 'f': ['Find files (FZF)', ':Files'] },
+\ { 'g': ['Search text', ':Rg'] },
+\ { 't': ['New tab', ':tabnew'] },
+\ { 'q': ['Quit', ':q'] },
+\ ]
+let g:startify_enable_special = 0
