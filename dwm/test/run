@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+XEPHYR=$(command -v Xephyr)
+xinit ./xinitrc -- \
+    "$XEPHYR" \
+        :100 \
+        -ac \
+        -screen 1380x720\
+        -host-cursor

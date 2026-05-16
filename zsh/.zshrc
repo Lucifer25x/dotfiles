@@ -112,7 +112,6 @@ source $ZSH/oh-my-zsh.sh
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-export PATH=$PATH:/home/lucifer25x/.spicetify
 export PATH=$HOME/.local/bin:$PATH
 
 xclip() {

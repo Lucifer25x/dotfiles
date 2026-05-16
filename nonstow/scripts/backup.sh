@@ -2,7 +2,17 @@
 
 set -euo pipefail
 
-DEST="/run/media/lucifer25x/BACKUP_USB"
+DEST=$(findmnt -rn -S LABEL=BACKUP_USB -o TARGET)
+if [[ -z "$DEST" ]]; then
+    echo "[ERROR] BACKUP_USB is not mounted. Aborting."
+    exit 1
+fi
+
+if ! touch "$DEST/.write_test" 2>/dev/null; then
+    echo "[ERROR] BACKUP_USB is mounted read-only. Run: sudo dosfsck -a /dev/sda1"
+    exit 1
+fi
+rm -f "$DEST/.write_test"
 
 ########################################
 # Backup Function (source → destination)
@@ -16,19 +26,9 @@ backup() {
 
     mkdir -p "$DST"
 
-    # rsync options matching robocopy behavior:
-    # -a   archive (recursive, preserves perms/times)
-    # -u   skip files that are newer on destination (like /XO)
-    # -r   recursive (redundant with -a but explicit)
-    # -t   preserve timestamps
-    # --delete-after optional: mimic robocopy /MIR (not enabled here)
-    # --info=progress2   show progress
-    # --no-perms if you want to avoid permission copying
-    #
-    # Retry logic (equivalent to: /R:2 /W:3)
-    #
     for attempt in 1 2; do
-        if rsync -aru --info=progress2 "$SRC"/ "$DST"/; then
+        # if rsync -aru --info=progress2 "$SRC"/ "$DST"/; then
+        if rsync -rtu --no-perms --no-owner --no-group --info=progress2 "$SRC"/ "$DST"/; then
             echo "[OK] Backup complete for \"$SRC\""
             return
         else
