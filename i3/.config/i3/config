@@ -252,7 +252,7 @@ exec --no-startup-id ~/.fehbg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # ------------ picom ------------
-exec --no-startup-id picom -b
+# exec --no-startup-id picom -b
 
 # ------------ enable touchpad click ------------
 exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
@@ -265,6 +265,9 @@ exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Mouse" "libin
 
 # gnome keyring
 # exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+
+# dunst
+exec --no-startup-id dunst
 
 # --------------------------------
 # ------------ Border ------------

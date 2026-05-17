@@ -1,0 +1,4 @@
+if [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
+    export QT_QPA_PLATFORMTHEME="qt6ct"
+fi
+export XCURSOR_SIZE=18
