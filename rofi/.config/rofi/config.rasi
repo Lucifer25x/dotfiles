@@ -4,4 +4,4 @@ configuration {
  font: "hack 12";
  combi-modi: "window,drun";
 }
-@theme "~/.config/rofi/themes/custom-catppucci.rasi"
+@theme "~/.config/rofi/themes/custom-catppuccin.rasi"

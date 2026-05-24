@@ -1,4 +1,3 @@
 if [ "$DESKTOP_SESSION" = "i3" ] || [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
-    export QT_QPA_PLATFORMTHEME=kde
     export XCURSOR_SIZE=18
 fi
