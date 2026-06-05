@@ -3,29 +3,15 @@ set $mod Mod1
 set $mod2 Mod4
 
 # Font
-# font pango:monospace 9
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 9
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
+# Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# set $refresh_i3status killall -SIGUSR1 i3status
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -42,17 +28,11 @@ bindsym $mod+Shift+q kill
 # ------------ i3 defaults ------------
 # -------------------------------------
 
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+Shift+d exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -61,10 +41,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -73,10 +53,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+backslash split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -87,8 +67,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-# bindsym $mod+Shift+space floating toggle
-bindsym $mod+Control+f floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -146,15 +125,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 # ------------ Resize Window ------------
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -207,54 +181,44 @@ client.background       #F8F8F2
 # ----------- custom keybindings -----------
 # ------------------------------------------
 
-# ------------ start terminal -----------
+# start terminal 
 bindsym $mod+Return exec konsole
 
-# ------------ start thunar ------------
-bindsym $mod+Shift+T exec thunar
+# start dmenu
+# bindsym $mod+Shift+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
-# ------------ start dmenu -----------
-bindsym $mod+Shift+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+# screenshot
+# bindsym Print exec --no-startup-id scrot $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H%M%S`.png
+# bindsym $mod+Print exec --no-startup-id scrot --select $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H%M%S`.png
+bindsym Print exec --no-startup-id spectacle
 
-# ------------ screenshot ------------
-bindsym Print exec --no-startup-id scrot $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H%M%S`.png
-bindsym $mod+Print exec --no-startup-id scrot --select $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H%M%S`.png
-
-# ------------- start firefox ------------
+# start firefox
 bindsym $mod+Shift+f exec firefox
 
-# ------------ volume control ------------
-# bindsym $mod2+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-# bindsym $mod2+d exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-# bindsym $mod2+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-# ------------ rofi ------------
+# rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
-# ------------ alt+tab with rofi ------------
-bindsym $mod2+Tab exec --no-startup-id rofi -show window
-
-# ------------ change keyboard layout ------------
+# change keyboard layout
 exec_always --no-startup-id setxkbmap -layout us,az -option grp:win_space_toggle
 
-# ------------ change brightness ------------
+# change brightness ------------
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
 
 # -------------------------------------
-# ------------ autostart ---- ---------
+# ------------ autostart --------------
 # -------------------------------------
 
-# ------------ wallpaper ------------
+# wallpaper
 exec --no-startup-id ~/.fehbg
 
-# ------------ launch polybar ------------
+# polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# ------------ picom ------------
-# exec --no-startup-id picom -b
+# picom
+# exec_always --no-startup-id picom -b
 
-# ------------ enable touchpad click ------------
+# enable touchpad click
 exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
 
 # enable natural scrolling on touchpad
@@ -263,25 +227,17 @@ exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "li
 # decrease pointer speed for the mouse
 exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Mouse" "libinput Accel Speed" -0.5
 
-# gnome keyring
-# exec --no-startup-id gnome-keyring-daemon --start --components=secrets
-
 # dunst
 exec --no-startup-id dunst
 
+# gnome keyring
+# exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+
 # --------------------------------
-# ------------ Border ------------
+# ------------ Other  ------------
 # --------------------------------
 
-for_window [class=".*"] border pixel 1
-
-
-# ---------------------------------
-# ------------ i3-gaps ------------
-# ---------------------------------
-
-
-# ------------ set inner and outer gaps ------------
+for_window [class=".*"] border pixel 2
 smart_gaps on
-gaps inner 5
-gaps outer 2
+gaps inner 2
+gaps outer 0

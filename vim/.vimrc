@@ -23,6 +23,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set number
+set relativenumber
 set clipboard=unnamedplus
 set smartcase
 set ignorecase
