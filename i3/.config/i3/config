@@ -12,8 +12,8 @@ exec --no-startup-id nm-applet
 
 # set $refresh_i3status killall -SIGUSR1 i3status
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -115,6 +115,9 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# start workspace 1 in tabbed mode
+for_window [workspace="1"] layout tabbed
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -177,9 +180,16 @@ client.background       #F8F8F2
 
 
 
-# ------------------------------------------
-# ----------- custom keybindings -----------
-# ------------------------------------------
+# ------------------------------
+# ----------- custom -----------
+# ------------------------------
+
+# lock the screen
+bindsym Mod4+l exec i3lock
+
+# greenclip
+exec --no-startup-id greenclip daemon
+bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # start terminal 
 bindsym $mod+Return exec konsole
@@ -205,9 +215,8 @@ exec_always --no-startup-id setxkbmap -layout us,az -option grp:win_space_toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
 
-# -------------------------------------
-# ------------ autostart --------------
-# -------------------------------------
+# blueman
+exec --no-startup-id blueman-applet
 
 # wallpaper
 exec --no-startup-id ~/.fehbg
@@ -216,7 +225,7 @@ exec --no-startup-id ~/.fehbg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # picom
-# exec_always --no-startup-id picom -b
+exec --no-startup-id picom -b
 
 # enable touchpad click
 exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
@@ -230,6 +239,9 @@ exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Mouse" "libin
 # dunst
 exec --no-startup-id dunst
 
+# keepassxc
+exec --no-startup-id keepassxc --minimized
+
 # gnome keyring
 # exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 
@@ -237,7 +249,7 @@ exec --no-startup-id dunst
 # ------------ Other  ------------
 # --------------------------------
 
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 smart_gaps on
 gaps inner 2
 gaps outer 0
