@@ -5,9 +5,12 @@ set $mod2 Mod4
 # Font
 font pango:DejaVu Sans Mono 9
 
+# set i3lock
+set $lock_cmd i3lock -i ~/Pictures/evening_sky_lock.png
+
 # Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock_cmd --nofork
 exec --no-startup-id nm-applet
 
 # set $refresh_i3status killall -SIGUSR1 i3status
@@ -185,7 +188,7 @@ client.background       #F8F8F2
 # ------------------------------
 
 # lock the screen
-bindsym Mod4+l exec i3lock
+bindsym Mod4+l exec $lock_cmd
 
 # greenclip
 exec --no-startup-id greenclip daemon
