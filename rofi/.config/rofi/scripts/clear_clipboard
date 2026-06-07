@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+chosen=$(printf "No\nYes" | rofi -dmenu -i -p "Clear clipboard history?" -theme-str 'window {width: 400px;} listview {lines: 2;}')
+
+if [ "$chosen" = "Yes" ]; then
+    pkill greenclip
+    greenclip clear
+    greenclip daemon &
+    dunstify -u low "Clipboard" "History cleared successfully."
+fi
