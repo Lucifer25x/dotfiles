@@ -18,8 +18,9 @@ call plug#end()
 syntax on
 set termguicolors
 colorscheme catppuccin_mocha
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 set number
@@ -34,6 +35,10 @@ set signcolumn=yes
 set mouse=a
 set shortmess+=I
 filetype plugin indent on
+
+" Set indentation
+command! Indent2 setlocal ts=2 sts=2 sw=2 et
+command! Indent4 setlocal ts=4 sts=4 sw=4 et
 
 " Leader
 let mapleader = "\<Space>"
