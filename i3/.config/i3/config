@@ -205,9 +205,6 @@ bindsym $mod+Return exec alacritty
 # bindsym $mod+Print exec --no-startup-id scrot --select $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H%M%S`.png
 bindsym Print exec --no-startup-id spectacle
 
-# start firefox
-bindsym $mod+Shift+f exec firefox
-
 # rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
