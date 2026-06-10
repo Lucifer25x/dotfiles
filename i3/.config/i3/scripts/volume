@@ -1,0 +1,35 @@
+#!/bin/bash
+
+STEP=5
+
+case "$1" in
+  up)
+    pactl set-sink-volume @DEFAULT_SINK@ +${STEP}%
+    ;;
+  down)
+    pactl set-sink-volume @DEFAULT_SINK@ -${STEP}%
+    ;;
+  mute)
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    ;;
+esac
+
+MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+
+if [ "$MUTED" = "yes" ]; then
+  dunstify \
+    -a volume \
+    -r 9993 \
+    -t 800 \
+    "󰖁 Muted"
+else
+  VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | head -n1 | tr -d '%')
+
+  dunstify \
+    -a volume \
+    -r 9993 \
+    -h int:value:$VOLUME \
+    -t 800 \
+    "󰕾 Volume" \
+    "${VOLUME}%"
+fi
