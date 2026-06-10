@@ -1,0 +1,22 @@
+#!/bin/bash
+
+STEP=5
+
+case "$1" in
+  up)
+    brightnessctl set +${STEP}% >/dev/null
+    ;;
+  down)
+    brightnessctl --min-val=2 -q set ${STEP}%-
+    ;;
+esac
+
+BRIGHTNESS=$(brightnessctl -m | cut -d, -f4 | tr -d '%')
+
+dunstify \
+  -a brightness \
+  -r 9994 \
+  -h int:value:$BRIGHTNESS \
+  -t 800 \
+  "󰃠 Brightness" \
+  "${BRIGHTNESS}%"

@@ -212,8 +212,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 exec_always --no-startup-id setxkbmap -layout us,az -option grp:win_space_toggle
 
 # change brightness ------------
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/brightness up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/brightness down
 
 # blueman
 exec --no-startup-id blueman-applet
