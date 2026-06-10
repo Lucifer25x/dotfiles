@@ -1,0 +1,51 @@
+Help
+────
+Alt+/             Show cheatsheet
+
+Navigation
+──────────
+Alt+h/j/k/l       Focus left/down/up/right
+Alt+Shift+h/j/k/l Move window
+Alt+Space         Focus floating/tiled
+Alt+a             Focus parent
+
+Layout
+──────
+Alt+\             Split horizontal
+Alt+-             Split vertical
+Alt+w             Tabbed layout
+Alt+s             Stacking layout
+Alt+e             Toggle split
+Alt+f             Fullscreen
+Alt+Shift+Space   Toggle floating
+
+Workspaces
+──────────
+Alt+1..0          Switch workspace
+Alt+Shift+1..0    Move window to workspace
+
+Applications
+────────────
+Alt+Return        Terminal (Alacritty)
+Alt+d             Application launcher (Rofi)
+Alt+v             Clipboard history
+Print             Screenshot (Spectacle)
+
+System
+──────
+Win+l             Lock screen
+XF86Audio*        Volume controls
+XF86Brightness*   Brightness controls
+
+Resize Mode
+───────────
+Alt+r             Enter resize mode
+h/j/k/l           Resize
+Esc/Enter         Exit resize mode
+
+Misc
+────
+Alt+Shift+c       Reload i3 config
+Alt+Shift+r       Restart i3
+Alt+Shift+q       Close window
+Alt+Shift+e       Exit i3

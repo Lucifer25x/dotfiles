@@ -190,6 +190,9 @@ client.background       #F8F8F2
 # lock the screen
 bindsym Mod4+l exec $lock_cmd
 
+# cheatsheet
+bindsym $mod+slash exec --no-startup-id rofi -e "$(cat ~/.config/i3/keys.txt)"
+
 # greenclip
 exec --no-startup-id greenclip daemon
 bindsym $mod+v exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
