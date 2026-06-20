@@ -29,3 +29,10 @@ Apply changes:
 sudo mkinitcpio -P
 sudo reboot
 ```
+
+### Battery Threshold:
+
+`/etc/udev/rules.d/asus-battery-charge-threshold.rules`:
+```
+ACTION=="add", KERNEL=="asus-nb-wmi", RUN+="/bin/bash -c 'echo 60 > /sys/class/power_supply/BAT?/charge_control_end_threshold'"
+```
