@@ -11,8 +11,6 @@ call plug#begin()
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'mhinz/vim-startify'
-  Plug 'prabirshrestha/vim-lsp'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -35,14 +33,27 @@ set hlsearch
 set scrolloff=8
 set signcolumn=yes
 set mouse=a
-set shortmess+=I
 filetype plugin indent on
+set updatetime=300
 
 " coc
 nnoremap <F12> <Plug>(coc-definition)
 nnoremap gd <Plug>(coc-definition)
 nnoremap gr <Plug>(coc-references)
 nnoremap <leader>r <Plug>(coc-rename)
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Set indentation
 command! Indent2 setlocal ts=2 sts=2 sw=2 et
@@ -90,35 +101,3 @@ nnoremap <C-q>  :q<CR>
 inoremap <C-q>  <Esc>:q<CR>
 nnoremap <C-_> :Commentary<CR>
 vnoremap <C-_> :Commentary<CR>
-
-" Startify
-function! CenterText(text, width)
-  let l:visible = strwidth(a:text)
-  let l:pad = (a:width - l:visible) / 2
-  return repeat(' ', max([0, l:pad])) . a:text
-endfunction
-let s:width = &columns
-let g:startify_padding_left = s:width / 2 - 10
-let g:startify_custom_header = [
-\ '',
-\ '',
-\ CenterText('██╗   ██╗██╗███╗   ███╗', s:width),
-\ CenterText('██║   ██║██║████╗ ████║', s:width),
-\ CenterText('██║   ██║██║██╔████╔██║', s:width),
-\ CenterText('╚██╗ ██╔╝██║██║╚██╔╝██║', s:width),
-\ CenterText(' ╚████╔╝ ██║██║ ╚═╝ ██║', s:width),
-\ CenterText('  ╚═══╝  ╚═╝╚═╝     ╚═╝', s:width),
-\ '',
-\ ]
-let g:startify_lists = [
-\ { 'type': 'files',    'header': [CenterText('Recent files', s:width)] },
-\ { 'type': 'commands', 'header': [CenterText('Shortcuts', s:width)]    },
-\ ]
-let g:startify_commands = [
-\ { 'n': ['NERDTree',           ':NERDTreeToggle'] },
-\ { 'f': ['Find files (FZF)',   ':Files']          },
-\ { 'g': ['Search text',        ':Rg']             },
-\ { 't': ['New tab',            ':tabnew']         },
-\ { 'q': ['Quit',               ':q']              },
-\ ]
-let g:startify_enable_special = 0
