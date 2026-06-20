@@ -12,6 +12,8 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mhinz/vim-startify'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " UI
@@ -35,6 +37,12 @@ set signcolumn=yes
 set mouse=a
 set shortmess+=I
 filetype plugin indent on
+
+" coc
+nnoremap <F12> <Plug>(coc-definition)
+nnoremap gd <Plug>(coc-definition)
+nnoremap gr <Plug>(coc-references)
+nnoremap <leader>r <Plug>(coc-rename)
 
 " Set indentation
 command! Indent2 setlocal ts=2 sts=2 sw=2 et
