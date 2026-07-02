@@ -36,6 +36,13 @@ set mouse=a
 filetype plugin indent on
 set updatetime=300
 
+" Don't yank on delete
+nnoremap d "_d
+vnoremap d "_d
+nnoremap dd "_dd
+nnoremap x "_x
+vnoremap x "_x1
+
 " coc
 nnoremap <F12> <Plug>(coc-definition)
 nnoremap gd <Plug>(coc-definition)
