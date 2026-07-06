@@ -43,13 +43,14 @@ backup() {
 ########################################
 # Folder Pairs (source → destination)
 ########################################
-backup ~/Documents/Backup   "$DEST/Backup"
-backup ~/Documents/Security "$DEST/Security"
-backup ~/Documents/Obsidian "$DEST/Obsidian"
-backup ~/Documents/Books    "$DEST/Books"
-backup ~/Documents/UNEC     "$DEST/UNEC"
-backup ~/Music/Personal     "$DEST/Personal"
-backup ~/Pictures           "$DEST/Pictures"
+backup ~/Documents/Backup    "$DEST/Backup"
+backup ~/Documents/Security  "$DEST/Security"
+backup ~/Documents/Obsidian  "$DEST/Obsidian"
+backup ~/Documents/knowledge "$DEST/knowledge"
+backup ~/Documents/Books     "$DEST/Books"
+backup ~/Documents/UNEC      "$DEST/UNEC"
+backup ~/Music/Personal      "$DEST/Personal"
+backup ~/Pictures            "$DEST/Pictures"
 
 echo ""
 echo "Backup finished."

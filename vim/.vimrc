@@ -74,10 +74,6 @@ nnoremap <leader>n  :NERDTreeFocus<CR>
 nnoremap <C-n>      :NERDTreeToggle<CR>
 nnoremap <C-f>      :NERDTreeFind<CR>
 
-" Close vim if NERDTree is the last window open
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
-  \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
 " Tabs
 nnoremap <C-t>        :tabnew<CR>
 nnoremap <C-PageDown> :tabnext<CR>

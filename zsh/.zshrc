@@ -118,3 +118,19 @@ export PATH=$HOME/.local/bin:$PATH
 xclip() {
   command xclip -selection clipboard "$@"
 }
+
+note() {
+  (cd ~/Documents/knowledge && command vim notes)
+}
+
+notes() {
+    (cd ~/Documents/knowledge && ranger)
+}
+
+tracker() {
+  (cd ~/Documents/knowledge && command vim trackers)
+}
+
+trackers() {
+  command tw --separator '|' ~/Documents/knowledge/trackers/*.csv
+}
