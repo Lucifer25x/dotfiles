@@ -36,3 +36,9 @@ sudo reboot
 ```
 ACTION=="add", KERNEL=="asus-nb-wmi", RUN+="/bin/bash -c 'echo 60 > /sys/class/power_supply/BAT?/charge_control_end_threshold'"
 ```
+
+### Kdenlive Crash Workaround:
+```
+sudo mv /usr/lib/mlt-7/libmltfrei0r.so \
+           /usr/lib/mlt-7/libmltfrei0r.so.disabled
+```

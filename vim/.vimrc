@@ -104,3 +104,5 @@ nnoremap <C-q>  :q<CR>
 inoremap <C-q>  <Esc>:q<CR>
 nnoremap <C-_> :Commentary<CR>
 vnoremap <C-_> :Commentary<CR>
+
+let g:AutoPairsMapSpace = 0

@@ -230,14 +230,11 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # picom
 exec --no-startup-id picom -b
 
-# enable touchpad click
-exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1
+# enable tapping
+exec_always --no-startup-id xinput set-prop 10 357 1
 
 # enable natural scrolling on touchpad
-exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Natural Scrolling Enabled" 1
-
-# decrease pointer speed for the mouse
-exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Mouse" "libinput Accel Speed" -0.5
+exec_always --no-startup-id xinput set-prop 10 330 1
 
 # dunst
 exec --no-startup-id dunst
