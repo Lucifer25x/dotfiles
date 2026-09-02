@@ -45,7 +45,6 @@ backup() {
 ########################################
 backup ~/Documents/Backup    "$DEST/Backup"
 backup ~/Documents/Security  "$DEST/Security"
-backup ~/Documents/Obsidian  "$DEST/Obsidian"
 backup ~/Documents/knowledge "$DEST/knowledge"
 backup ~/Documents/Books     "$DEST/Books"
 backup ~/Documents/UNEC      "$DEST/UNEC"

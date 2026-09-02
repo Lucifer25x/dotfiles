@@ -124,7 +124,7 @@ note() {
 }
 
 notes() {
-    (cd ~/Documents/knowledge && ranger)
+    (cd ~/Documents/knowledge/notes && ranger)
 }
 
 tracker() {

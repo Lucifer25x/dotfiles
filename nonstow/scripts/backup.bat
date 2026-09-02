@@ -13,7 +13,6 @@ call :backup "C:\Users\lucifer25x\Documents\Backup"   "%DEST%\Backup"
 call :backup "C:\Users\lucifer25x\Documents\Security" "%DEST%\Security"
 call :backup "C:\Users\lucifer25x\Documents\Books"    "%DEST%\Books"
 call :backup "C:\Users\lucifer25x\Music\Personal"     "%DEST%\Personal"
-call :backup "C:\Users\lucifer25x\Documents\Obsidian" "%DEST%\Obsidian"
 call :backup "C:\Users\lucifer25x\Pictures"           "%DEST%\Pictures"
 call :backup "C:\Users\lucifer25x\Documents\UNEC"     "%DEST%\UNEC"
 

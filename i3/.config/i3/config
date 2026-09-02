@@ -231,10 +231,10 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom -b
 
 # enable tapping
-exec_always --no-startup-id xinput set-prop 10 357 1
+exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" 357 1
 
 # enable natural scrolling on touchpad
-exec_always --no-startup-id xinput set-prop 10 330 1
+exec_always --no-startup-id xinput set-prop "ELAN1203:00 04F3:307A Touchpad" 330 1
 
 # dunst
 exec --no-startup-id dunst
